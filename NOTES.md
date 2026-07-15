@@ -1,0 +1,7 @@
+# Notes
+
+My model relies heavily on prosodic and phonetic decay signals extracted from the final 1.5 seconds of speech preceding a pause. Specifically, it uses the delta (slope) of the fundamental frequency (pitch) to detect falling intonation, alongside the RMS energy delta to catch fading vocal volume. I also included the mean and variance of 13 MFCCs to capture phonetic structural changes at the end of utterances. The model successfully drives the response delay down to 100 ms by recognizing these acoustic "brakes" rather than just waiting for silence. 
+
+However, the model likely still struggles in environments with high background noise, as `librosa.pyin` can misinterpret noise as voiced pitch, skewing the delta features. It may also prematurely cut off users who have highly irregular speech patterns or who trail off mid-thought without dropping their pitch. 
+
+If I had one more day, I would transition from a Random Forest to a sequential model like a small LSTM or GRU. Instead of squashing the 1.5-second window into static means and variances, a recurrent network could read the time-series feature frames directly to better understand the temporal rhythm of the speaker's cadence.
