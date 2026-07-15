@@ -1,0 +1,20 @@
+# Pinned to the versions this submission was trained and tested against.
+# Assignment's "Allowed libraries" list: numpy, scipy, scikit-learn, pandas,
+# librosa, PyTorch (PyTorch is unused here). joblib/tqdm/soundfile are
+# lightweight utility deps of the above, not modeling libraries.
+#
+# Install with: pip install -r requirements.txt
+#
+# If rf_model.pkl still prints an InconsistentVersionWarning on load after
+# installing these versions, delete it and rerun train.py to regenerate a
+# model pickled with the environment you're actually grading in -- sklearn
+# does not guarantee pickle compatibility across versions.
+
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+pandas==2.3.3
+librosa==0.11.0
+joblib==1.5.3
+tqdm==4.68.4
+soundfile==0.14.0
